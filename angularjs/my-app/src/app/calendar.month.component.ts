@@ -155,11 +155,11 @@ export class CalendarMonthComponent implements OnInit {
   	$.each(self.allData, function(key, value){
   		self.allDate.push(Object.keys(value)[0]);
   	});
-	self.allDays = Object.keys(self.allData);
+	self.allDays = Object.keys(self.allData); //indices of the array in number
 	// $.each(self.allData, function(key, value){
 	// 	self.allDays[key]=parseInt(value);
 	// })
-	self.allData.reverse();
+	// self.allData.reverse();
   	console.log(self.allDays)
   }
 
