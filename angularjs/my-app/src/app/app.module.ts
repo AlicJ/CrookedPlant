@@ -5,7 +5,10 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './input.component';
-import { CalenderComponent } from './calender.component';
+import { CalendarMonthComponent } from './calendar.month.component';
+import { CalendarYearComponent } from './calendar.year.component';
+import { CalendarDayComponent } from './calendar.day.component';
+import { SettingsComponent } from './settings.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,26 +17,25 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
   	InputComponent,
-  	CalenderComponent
+  	CalendarMonthComponent,
+    CalendarYearComponent,
+    CalendarDayComponent,
+  	SettingsComponent
   ],
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-    	{
-    		path: '',
-    		redirectTo: '/input',
-    		pathMatch: 'full'
-    	},
-	    {
-	    	path: 'input',
-	    	component: InputComponent
-	    },
-	    {
-	    	path: 'calender',
-	    	component: CalenderComponent
-	    }
+    	{ path: '', redirectTo: '/input', pathMatch: 'full' },
+	    { path: 'input', component: InputComponent },
+	    { path: 'calendar/month', component: CalendarMonthComponent},
+          { path: 'calendar/year', component: CalendarYearComponent },
+          { path: 'calendar/day', component: CalendarDayComponent },
+          { path: 'calendar/month', component: CalendarMonthComponent },
+	    { path: 'settings',	component: SettingsComponent },
+      { path: '**', component: InputComponent }
+
     ])
   ],
   providers: [],

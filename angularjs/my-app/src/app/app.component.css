@@ -6,17 +6,84 @@
 	width: 100%;
 }
 
+.app-nav {
+	padding: 1.5em 0 ;
+}
+
 .input-text {
-	margin: 5% auto;
+	margin: 2.5em auto;
+	font-size: 1.5em;
 }
 
 .input-btn {
 	display: inline-block;
-	width: 80px;
-	height: 80px;
-	padding-top: 25px;
-	margin: 0 30px;
+	width: 6em;
+	height: 6em;
+	padding-top: 2em;
+	margin: 0 2em;
 	border-radius: 50%;
-	box-shadow: 0px 0px 15px #CCC;
+	box-shadow: 0px 0px 1em #CCC;
 	vertical-align: middle;
+}
+
+
+/* calendar */
+
+.nav-tabs>li.active>a {
+	color: #337ab7;
+	background-color: transparent;
+    border: none;
+}
+
+.nav-tabs>li>a {
+	color: #AAA;
+}
+
+.year-view .month {
+    padding: 6px;
+    height: 100px;
+    background: #eee;
+    border: 0.5px solid #DDD;
+}
+
+.year-view .month.active {
+    background: #1abc9c;
+}
+
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color:#777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
 }
