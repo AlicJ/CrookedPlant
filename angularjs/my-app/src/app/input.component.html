@@ -1,14 +1,16 @@
 
 <div class="text-center">
 	<h1>{{suggestion}}</h1>
-	<h1>How do you feel today?</h1>
+	<h1>How do you feel today? {{input}}</h1>
 </div>
+<!-- 
+{{expression}}
+[target]="expression"
+bind-target="expression" -->
 
-
-
-<textarea type="text" class="form-control input-text" placeholder="I feel ..."></textarea>
+<textarea type="text" [(ngModel)]="input" class="form-control input-text" placeholder="I feel ..."></textarea>
 
 <div class="input-btn-group text-center">
-	<div class="input-btn text-center"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></div>
-	<div class="input-btn text-center"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i></div>
+	<div (click)="sendInput()" class="btn input-btn text-center"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></div>
+	<div class="btn input-btn text-center"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i></div>
 </div>
