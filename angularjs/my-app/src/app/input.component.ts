@@ -174,6 +174,7 @@ console.log(sd.emotion[0])
       var arr = JSON.parse(localStorage.getItem("allData")) || [];
       var newItem = {};
       newItem[$.now()] = sd;
+      while (arr.length >= 27) arr.pop(); // hack for presentation
       arr.push(newItem);
       localStorage.setItem("allData", JSON.stringify(arr));
     });
