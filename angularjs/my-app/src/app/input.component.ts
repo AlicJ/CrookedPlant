@@ -65,7 +65,7 @@ export class InputComponent {
           if (second.score >= 0.5) {
             final = 'frustrated';
           } else {
-            final = 'sad';
+            final = 'angry';
           }
         } else {
           if (second.score >= 0.5) {

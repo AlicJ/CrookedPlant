@@ -59,7 +59,7 @@
 
 .weekdays li {
     display: inline-block;
-    width: 13.6%;
+    width: 13%;
     color: #666;
     text-align: center;
 }
@@ -74,7 +74,8 @@
 .days li {
     list-style-type: none;
     display: inline-block;
-    width: 13.6%;
+    width: 13%;
+    height: 40px;
     text-align: center;
     margin-bottom: 5px;
     font-size:12px;
@@ -87,3 +88,20 @@
     background: #1abc9c;
     color: white !important
 }
+
+
+/* colour coding for the moods*/
+.frustrated { background-color: #ff7c35 !important;}
+.angry { background-color: #ff1f01 !important; color: white !important;}
+.astonished { background-color: #cfc72f !important;}
+.nervous { background-color: #ff1f01 !important;}
+.depressed { background-color: #005276 !important;}
+.terrified { background-color: #ab7f1d !important;}
+.mixed { background-color: #ffdfaf !important;}
+.disbelief { background-color: #e475d2 !important;}
+.happy { background-color: #0077b9 !important;}
+.fear { background-color: #003fb3 !important; color: white !important;}
+.sad { background-color: #0077b9 !important; color: white !important;}
+.surprised { background-color: #ffeaaa !important;}
+.mixed { background-color: #ffdfaf !important;}
+.calm { background-color: #c2f0f3 !important;}

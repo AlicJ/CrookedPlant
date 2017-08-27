@@ -6,19 +6,34 @@
 
 <div class="month-view">
 	<ul class="weekdays">
-
+	  <li>Su</li>
 	  <li>Mo</li>
 	  <li>Tu</li>
 	  <li>We</li>
 	  <li>Th</li>
 	  <li>Fr</li>
 	  <li>Sa</li>
-	  <li>Su</li>
 	</ul>
 
 	<ul class="days">
-				<li></li>
 		<li></li>
+		<li></li>
+		<li *ngFor="let day of allDays; let i = index" class="{{allData[day][allDate[day]].general}}" (click)="onSelect(alData[date])">
+			<span>
+			<span>{{ i + 1 }}</span> <br/>
+			<b>{{ allData[day][allDate[day]].general  }}</b>
+			</span>
+		</li>
+	</ul>
+
+	<div class="detail" *ngIf="selectedDay">
+		{{day | json}}
+	</div>
+
+	<!-- 
+	<ul class="days">
+	  <li></li>
+      <li></li>
 	  <li>1</li>
 	  <li>2</li>
 	  <li>3</li>
@@ -28,7 +43,7 @@
 	  <li>7</li>
 	  <li>8</li>
 	  <li>9</li>
-	  <li><span class="active">10</span></li>
+	  <li>10</li>
 	  <li>11</li>
 	  <li>12</li>
 	  <li>13</li>
@@ -45,10 +60,10 @@
 	  <li>24</li>
 	  <li>25</li>
 	  <li>26</li>
-	  <li>27</li>
+	  <li><span class="active">27</span></li>
 	  <li>28</li>
 	  <li>29</li>
 	  <li>30</li>
 	  <li>31</li>
-	</ul>
+	</ul> -->
 </div>
