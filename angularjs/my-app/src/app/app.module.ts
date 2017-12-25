@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import { DemoUtilsModule } from './demo-utils/module';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './input.component';
@@ -23,8 +26,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   	SettingsComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    CalendarModule.forRoot(),
     NgbModule.forRoot(),
     BrowserModule,
+    DemoUtilsModule,
     FormsModule,
     RouterModule.forRoot([
     	{ path: '', redirectTo: '/input', pathMatch: 'full' },

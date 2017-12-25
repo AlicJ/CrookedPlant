@@ -147,7 +147,7 @@ export class InputComponent {
     $.post(
       'https://apiv2.indico.io/apis/multiapi/batch?apis=sentimenthq,keywords,people,personality,emotion',
       JSON.stringify({
-          'api_key': "1b3568397ac4cf74ef9dfce04b1c6c57",
+          'api_key': "f5818b6f20be71ef2841fc90153572d5",
           'data': [self.input]
       })
     ).then(function(res) {

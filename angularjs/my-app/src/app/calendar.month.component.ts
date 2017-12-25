@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
+import { DayViewHour } from 'calendar-utils';
+import { colors } from './demo-utils/colors';
 declare var jquery:any;
 declare var $ :any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './calendar.month.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./app.component.css']
 })
 export class CalendarMonthComponent implements OnInit {
@@ -15,6 +20,7 @@ export class CalendarMonthComponent implements OnInit {
   selectedDay = {};
 
   onSelect(day: Object): void {
+    console.log("day selected", this);
     this.selectedDay = day;
   }
 
@@ -22,147 +28,46 @@ export class CalendarMonthComponent implements OnInit {
 
   }
 
-  // twoHighestEmotion = function (emotions) {
-  //   var sortable = [];
-  //   $.each(emotions, (k,v) => {
-  //        sortable.push([k, v]);
-  //     });
-  //   var sorted = sortable.sort(function(a,b) {
-  //     return b[1] - a[1];
-  //   });
+  view: string = 'month';
 
-  //   console.log('sortable', sortable);
+  viewDate: Date = new Date();
 
-  //   var highestTwo = [
-  //     {
-  //       'emotion': sortable[0][0],
-  //       'score': sortable[0][1]
-  //     },
-  //     {
-  //       'emotion': sortable[1][0],
-  //       'score': sortable[1][1]
-  //     }
-  //   ];
+  events: CalendarEvent[] = [];
+  dayView: DayViewHour[];
+  clickedDate: Date;
 
-  //   return highestTwo;
-  // };
-
-  // getGeneralEmotion = function (emotions, self = this) {
-  //   var highestTwo = self.twoHighestEmotion(emotions);
-  //   var first = highestTwo[0];
-  //   var second = highestTwo[1];
-  //   var final = 'mixed';
-
-  //   console.log(first, second);
-
-  //   if (first.emotion == 'anger') {
-  //     if (second.emotion == 'joy') {
-  //       final = 'mixed';
-  //     }
-  //     else if (second.emotion == 'fear') {
-  //       if (first.score >= 0.5) {
-  //         final = 'angry';
-  //       }else if (second.score > 0.5) {
-  //         final = 'fear';
-  //       }else {
-  //         final = 'mixed';
-  //       }
-  //     }
-  //     else if (second.emotion == 'sadness') {
-  //       if (first.score >= 0.5) {
-  //         if (second.score >= 0.5) {
-  //           final = 'frustrated';
-  //         } else {
-  //           final = 'angry';
-  //         }
-  //       } else {
-  //         if (second.score >= 0.5) {
-  //           final = 'sad';
-  //         } else {
-  //           final = 'mixed';
-  //         }
-  //       }
-  //     }
-  //     else if (second.emotion == 'surprise') {
-  //       if (first.score < 0.5 && second.score < 0.5) {
-  //         final = 'calm';
-  //       }else {
-  //         final = 'angry';
-  //       }
-  //     }
-  //   }
-
-  //   else if (first.emotion == 'joy') {
-  //     if (second.emotion = 'fear') {
-  //       if (first.score < 0.5 && second.score < 0.5) {
-  //         final = 'mixed';
-  //       }else {
-  //         final = 'nervous';
-  //       }
-  //     }
-  //     else if (second.emotion == 'sadness') {
-  //       final = 'mixed';
-  //     }
-  //     else if (second.emotion == 'surprise') {
-  //       if (second.score >= 0.5) {
-  //         final = 'astonished';
-  //       } else if (first.score >= 0.5) {
-  //         final = 'happy';
-  //       } else {
-  //         final = 'calm';
-  //       }
-  //     }
-  //   }
-
-  //   else if (first.emotion == 'fear') {
-  //     if (second.emotion == 'sadness') {
-  //       if (second.score >= 0.5) {
-  //         final = 'depressed';
-  //       } else if (first.score >= 0.5) {
-  //         final = 'fear';
-  //       } else {
-  //         final = 'sad';
-  //       }
-  //     }
-
-  //     else if (second.emotion == 'surprise') {
-  //       if (first.score >= 0.5) {
-  //         if (second.score >= 0.5) {
-  //           final = 'terrified';
-  //         } else {
-  //           final = 'fear';
-  //         }
-  //       }else {
-  //         if (second.score >= 0.5) {
-  //           final = 'surprised';
-  //         } else {
-  //           final = 'mixed';
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   else if (first.emotion == 'fear') {
-  //     if (second.emotion == 'surprise') {
-  //       final = 'disbelief';
-  //     }
-  //   }
-
-  //   return final;
-  // };
+  beforeDayViewRender( dayView: DayViewHour[] ) {
+    console.log(dayView);
+    this.dayView = dayView;
+    //this.addSelectedDayViewClass();
+  }
 
   ngOnInit(self = this): void {
   	$.each(self.allData, function(key, value){
   		self.allDate.push(Object.keys(value)[0]);
   	});
-	self.allDays = Object.keys(self.allData); //indices of the array in number
-	// $.each(self.allData, function(key, value){
-	// 	self.allDays[key]=parseInt(value);
-	// })
-	// self.allData.reverse();
-  	console.log(self.allDays)
+    self.allDays = Object.keys(self.allData); //indices of the array in number
+    // $.each(self.allData, function(key, value){
+    // 	self.allDays[key]=parseInt(value);
+    // })
+    // self.allData.reverse();
+    console.log(self.allDays);
+    var keyVal;
+    var tempEventsArr = [];
+    self.allData.forEach((e,i) => {
+      keyVal = Object.keys(e)[0];
+      tempEventsArr.push(
+        {
+          title: e[keyVal].general,
+          color: colors[e[keyVal].general],
+          start: new Date(Number(keyVal)),
+          meta: e[keyVal]
+        }
+      );
+      console.log(e,colors[e[keyVal]], e[keyVal]);
+    })
+    self.events = self.events.concat(tempEventsArr);
+    console.log(self.allData);
+    console.log("Events", self.events);
   }
-
-
-
 }

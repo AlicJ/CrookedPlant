@@ -1,69 +1,32 @@
-<ul class="nav nav-tabs text-center">
-  <li role="presentation"><a routerLink="/calendar/year">Year</a></li>
-  <li role="presentation" class="active"><a routerLink="/calendar/month">Month</a></li>
-  <li role="presentation"><a routerLink="/calendar/day">Day</a></li>
-</ul>
+<div>
+	<mwl-demo-utils-calendar-header
+  	[(view)]="view"
+  	[(viewDate)]="viewDate">
+	</mwl-demo-utils-calendar-header>
 
-<div class="month-view">
-	<ul class="weekdays">
-	  <li>Su</li>
-	  <li>Mo</li>
-	  <li>Tu</li>
-	  <li>We</li>
-	  <li>Th</li>
-	  <li>Fr</li>
-	  <li>Sa</li>
-	</ul>
-
-	<ul class="days">
-		<li></li>
-		<li></li>
-		<li *ngFor="let day of allDays; let i = index" class="{{allData[day][allDate[day]].general}}" (click)="onSelect(alData[date])">
-			<span>
-			<span>{{ i + 1 }}</span> <br/>
-			<b>{{ allData[day][allDate[day]].general }}</b>
-			</span>
-		</li>
-	</ul>
-
-	<div class="detail" *ngIf="selectedDay">
-		{{day | json}}
+	<div class="alert alert-info">
+		Click on a day on the view.
+		<strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate | date:'medium' }}</strong>
 	</div>
 
-	<!-- 
-	<ul class="days">
-	  <li></li>
-      <li></li>
-	  <li>1</li>
-	  <li>2</li>
-	  <li>3</li>
-	  <li>4</li>
-	  <li>5</li>
-	  <li>6</li>
-	  <li>7</li>
-	  <li>8</li>
-	  <li>9</li>
-	  <li>10</li>
-	  <li>11</li>
-	  <li>12</li>
-	  <li>13</li>
-	  <li>14</li>
-	  <li>15</li>
-	  <li>16</li>
-	  <li>17</li>
-	  <li>18</li>
-	  <li>19</li>
-	  <li>20</li>
-	  <li>21</li>
-	  <li>22</li>
-	  <li>23</li>
-	  <li>24</li>
-	  <li>25</li>
-	  <li>26</li>
-	  <li><span class="active">27</span></li>
-	  <li>28</li>
-	  <li>29</li>
-	  <li>30</li>
-	  <li>31</li>
-	</ul> -->
+	<div [ngSwitch]="view">
+		<mwl-calendar-month-view
+			*ngSwitchCase="'month'"
+			[viewDate]="viewDate"
+			[events]="events"
+			(dayClicked)="clickedDate = $event.day.date">
+		</mwl-calendar-month-view>
+		<mwl-calendar-week-view
+			*ngSwitchCase="'week'"
+			[viewDate]="viewDate"
+			[events]="events">
+		</mwl-calendar-week-view>
+		<mwl-calendar-day-view
+			*ngSwitchCase="'day'"
+			[viewDate]="viewDate"
+			[events]="events"
+			(beforeViewRender)="beforeDayViewRender($event.body)"
+			(hourSegmentClicked)="hourSegmentClicked($event.date)">
+		</mwl-calendar-day-view>
+	</div>
 </div>

@@ -1,0 +1,18 @@
+/* Custom styles */
+
+div.custom-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+      padding-top:48px;
+      padding-bottom: 48px;
+  }
+}
+
+body {
+  background-color: #aaa;
+}

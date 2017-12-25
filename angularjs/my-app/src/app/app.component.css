@@ -1,13 +1,24 @@
+textarea.form-control {
+    height: 10em;
+}
+
+/* div.calendar-view {
+    margin: 1em;
+} */
+
 .bottom{
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	margin: 0 auto;
-	width: 100%;
+    width: 100%;
+    color: dodgerblue;
+    background-color: black;
 }
 
 .app-nav {
-	padding: 1.5em 0 ;
+    padding: 1.5em 0 ;
+    background-color: rgba(240, 255, 255, 0.5);
 }
 
 .input-text {
@@ -16,14 +27,28 @@
 }
 
 .input-btn {
-	display: inline-block;
-	width: 6em;
-	height: 6em;
-	padding-top: 2em;
-	margin: 0 2em;
-	border-radius: 50%;
-	box-shadow: 0px 0px 1em #CCC;
-	vertical-align: middle;
+    width: 3em;
+    height: 3em;
+    padding-top: 1em;
+    margin: 0 1em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1em dodgerblue;
+    vertical-align: middle;
+    color: dodgerblue;
+}
+
+@media screen and (min-width: 768px) {
+    .input-btn {
+        display: inline-block;
+        width: 6em;
+        height: 6em;
+        padding-top: 2em;
+        margin: 0 2em;
+        border-radius: 50%;
+        box-shadow: 0px 0px 1em dodgerblue;
+        vertical-align: middle;
+        color: dodgerblue;
+    }
 }
 
 
