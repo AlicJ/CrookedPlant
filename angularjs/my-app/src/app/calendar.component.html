@@ -6,7 +6,7 @@
 
 	<div class="alert alert-info">
 		Click on a day on the view.
-		<strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate | date:'medium' }}</strong>
+		<strong *ngIf="clickedDate">You're on: {{ clickedDate | date:'medium' }}</strong>
 	</div>
 
 	<div [ngSwitch]="view">

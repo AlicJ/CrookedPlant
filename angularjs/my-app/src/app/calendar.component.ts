@@ -7,12 +7,12 @@ declare var $ :any;
 
 @Component({
   selector: 'app-root',
-  templateUrl: './calendar.month.component.html',
+  templateUrl: './calendar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./app.component.css']
 })
-export class CalendarMonthComponent implements OnInit {
+export class CalendarComponent implements OnInit {
 
   allData = JSON.parse(localStorage.getItem('allData'));
   allDate = []
@@ -43,6 +43,8 @@ export class CalendarMonthComponent implements OnInit {
   }
 
   ngOnInit(self = this): void {
+    if (!self.allData) throw("Initialize localhost by runnning CrookedPlant/allData.txt");
+    
   	$.each(self.allData, function(key, value){
   		self.allDate.push(Object.keys(value)[0]);
   	});

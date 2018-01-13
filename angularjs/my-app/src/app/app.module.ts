@@ -8,9 +8,7 @@ import { DemoUtilsModule } from './demo-utils/module';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './input.component';
-import { CalendarMonthComponent } from './calendar.month.component';
-import { CalendarYearComponent } from './calendar.year.component';
-import { CalendarDayComponent } from './calendar.day.component';
+import { CalendarComponent } from './calendar.component';
 import { SettingsComponent } from './settings.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -20,9 +18,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
   	InputComponent,
-  	CalendarMonthComponent,
-    CalendarYearComponent,
-    CalendarDayComponent,
+  	CalendarComponent,
   	SettingsComponent
   ],
   imports: [
@@ -35,10 +31,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forRoot([
     	{ path: '', redirectTo: '/input', pathMatch: 'full' },
 	    { path: 'input', component: InputComponent },
-	    { path: 'calendar/month', component: CalendarMonthComponent},
-          { path: 'calendar/year', component: CalendarYearComponent },
-          { path: 'calendar/day', component: CalendarDayComponent },
-          { path: 'calendar/month', component: CalendarMonthComponent },
+	    { path: 'calendar', component: CalendarComponent},
 	    { path: 'settings',	component: SettingsComponent },
       { path: '**', component: InputComponent }
 

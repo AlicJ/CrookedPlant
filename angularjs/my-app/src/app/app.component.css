@@ -1,5 +1,6 @@
 textarea.form-control {
     height: 10em;
+    /* background-color: transparent; */
 }
 
 /* div.calendar-view {
@@ -18,7 +19,8 @@ textarea.form-control {
 
 .app-nav {
     padding: 1.5em 0 ;
-    background-color: rgba(240, 255, 255, 0.5);
+    background-color: #000;
+    /* background-color: rgba(240, 255, 255, 0.5); */
 }
 
 .input-text {
@@ -61,7 +63,7 @@ textarea.form-control {
 }
 
 .nav-tabs>li>a {
-	color: #AAA;
+	color: #000;
 }
 
 .year-view .month {
