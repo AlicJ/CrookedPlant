@@ -1,7 +1,9 @@
 <div>
 	<mwl-demo-utils-calendar-header
   	[(view)]="view"
-  	[(viewDate)]="viewDate">
+		[(viewDate)]="viewDate"
+		(hover)="headerClicked($event, $scope)"
+		>
 	</mwl-demo-utils-calendar-header>
 
 	<div class="alert alert-info">
@@ -14,19 +16,17 @@
 			*ngSwitchCase="'month'"
 			[viewDate]="viewDate"
 			[events]="events"
-			(dayClicked)="clickedDate = $event.day.date">
+			(dayClicked)="dayClick($event)">
 		</mwl-calendar-month-view>
 		<mwl-calendar-week-view
 			*ngSwitchCase="'week'"
 			[viewDate]="viewDate"
-			[events]="events">
+			[events]="wkEvents(events)">
 		</mwl-calendar-week-view>
 		<mwl-calendar-day-view
 			*ngSwitchCase="'day'"
 			[viewDate]="viewDate"
-			[events]="events"
-			(beforeViewRender)="beforeDayViewRender($event.body)"
-			(hourSegmentClicked)="hourSegmentClicked($event.date)">
+			[events]="eventSqr(events)">
 		</mwl-calendar-day-view>
 	</div>
 
