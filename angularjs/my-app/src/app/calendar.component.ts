@@ -118,7 +118,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       fearData.push(v.meta.emotion[0].fear);
       joyData.push(v.meta.emotion[0].joy);
       sadnessData.push(v.meta.emotion[0].sadness);
-      surpriseData.push(v.meta.emotion[0].sadness);
+      surpriseData.push(v.meta.emotion[0].surprise);
     });
 
     console.log("RenderWeekGraph");
