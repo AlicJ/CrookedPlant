@@ -1,11 +1,15 @@
 textarea.form-control {
     height: 10em;
-    /* background-color: transparent; */
+    background-color:rgba(0,0,0,0.3);
+    color: white;
+    border: none;
 }
 
-/* div.calendar-view {
-    margin: 1em;
-} */
+input, .input-group-addon:last-child {
+    background-color:rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+}
 
 .bottom{
 	position: fixed;
@@ -13,19 +17,19 @@ textarea.form-control {
 	left: 0;
 	margin: 0 auto;
     width: 100%;
-    color: dodgerblue;
-    background-color: black;
+    color: white;
+    background-color:rgba(0,0,0,0.3);
 }
 
 .app-nav {
     padding: 1.5em 0 ;
-    background-color: #000;
-    /* background-color: rgba(240, 255, 255, 0.5); */
+    background-color:rgba(0,0,0,0.3);
 }
 
 .input-text {
 	margin: 2.5em auto;
-	font-size: 1.5em;
+    font-size: 1.5em;
+    background-color:rgba(0,0,0,0.3);
 }
 
 .input-btn {
@@ -34,9 +38,15 @@ textarea.form-control {
     padding-top: 1em;
     margin: 0 1em;
     border-radius: 50%;
-    box-shadow: 0px 0px 1em dodgerblue;
+    box-shadow: 0px 0px 1em white;
     vertical-align: middle;
-    color: dodgerblue;
+    color: white;
+}
+
+#myChart {
+    background-color:rgba(0,0,0,0.3);
+    width:100%;
+    height: 70vh;
 }
 
 @media screen and (min-width: 768px) {
@@ -47,17 +57,20 @@ textarea.form-control {
         padding-top: 2em;
         margin: 0 2em;
         border-radius: 50%;
-        box-shadow: 0px 0px 1em dodgerblue;
+        box-shadow: 0px 0px 1em white;
         vertical-align: middle;
-        color: dodgerblue;
+        color: white;
+    }
+
+    #myChart {
+        height: auto;
+        height: 70vh;
     }
 }
 
-
-/* calendar */
-
 .nav-tabs>li.active>a {
-	color: #337ab7;
+    /* color: #337ab7; */
+    color: red;
 	background-color: transparent;
     border: none;
 }
@@ -65,57 +78,6 @@ textarea.form-control {
 .nav-tabs>li>a {
 	color: #000;
 }
-
-.year-view .month {
-    padding: 6px;
-    height: 100px;
-    background: #eee;
-    border: 0.5px solid #DDD;
-}
-
-.year-view .month.active {
-    background: #1abc9c;
-}
-
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color:#ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 13%;
-    color: #666;
-    text-align: center;
-}
-
-/* Days (1-31) */
-.days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 13%;
-    height: 40px;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color:#777;
-}
-
-/* Highlight the "current" day */
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
-
 
 /* colour coding for the moods*/
 .frustrated { background-color: #ff7c35 !important;}

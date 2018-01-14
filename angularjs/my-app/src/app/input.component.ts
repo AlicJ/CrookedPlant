@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-declare var jquery:any;
-declare var $ :any;
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -16,10 +16,10 @@ export class InputComponent {
 
   twoHighestEmotion = function (emotions) {
     var sortable = [];
-    $.each(emotions, (k,v) => {
-         sortable.push([k, v]);
-      });
-    var sorted = sortable.sort(function(a,b) {
+    $.each(emotions, (k, v) => {
+      sortable.push([k, v]);
+    });
+    var sorted = sortable.sort(function (a, b) {
       return b[1] - a[1];
     });
 
@@ -54,9 +54,9 @@ export class InputComponent {
       else if (second.emotion == 'fear') {
         if (first.score >= 0.5) {
           final = 'angry';
-        }else if (second.score > 0.5) {
+        } else if (second.score > 0.5) {
           final = 'fear';
-        }else {
+        } else {
           final = 'mixed';
         }
       }
@@ -78,7 +78,7 @@ export class InputComponent {
       else if (second.emotion == 'surprise') {
         if (first.score < 0.5 && second.score < 0.5) {
           final = 'calm';
-        }else {
+        } else {
           final = 'angry';
         }
       }
@@ -88,7 +88,7 @@ export class InputComponent {
       if (second.emotion = 'fear') {
         if (first.score < 0.5 && second.score < 0.5) {
           final = 'mixed';
-        }else {
+        } else {
           final = 'nervous';
         }
       }
@@ -124,7 +124,7 @@ export class InputComponent {
           } else {
             final = 'fear';
           }
-        }else {
+        } else {
           if (second.score >= 0.5) {
             final = 'surprised';
           } else {
@@ -147,13 +147,13 @@ export class InputComponent {
     $.post(
       'https://apiv2.indico.io/apis/multiapi/batch?apis=sentimenthq,keywords,people,personality,emotion',
       JSON.stringify({
-          'api_key': "f5818b6f20be71ef2841fc90153572d5",
-          'data': [self.input]
+        'api_key': "f5818b6f20be71ef2841fc90153572d5",
+        'data': [self.input]
       })
-    ).then(function(res) {
+    ).then(function (res) {
 
       var sd: StoreData = {
-        input : self.input,
+        input: self.input,
         general: "",
         emotion: [],
         people: [],
@@ -162,11 +162,11 @@ export class InputComponent {
         personality: []
       }
 
-      $.each(JSON.parse(res).results, (k,v) => {
+      $.each(JSON.parse(res).results, (k, v) => {
         sd[k] = v.results ? v.results : v.status;
       });
 
-console.log(sd.emotion[0])
+      console.log(sd.emotion[0])
       sd.general = self.getGeneralEmotion(sd.emotion[0]);
 
       console.log(sd.general)
@@ -185,9 +185,9 @@ console.log(sd.emotion[0])
 class StoreData {
   "input": string;
   "general": string;
-    "emotion": Object[];
-    "people":Object[];
-    "sentimenthq":Object[];
-    "keywords":Object[];
-    "personality":Object[];
+  "emotion": Object[];
+  "people": Object[];
+  "sentimenthq": Object[];
+  "keywords": Object[];
+  "personality": Object[];
 }
